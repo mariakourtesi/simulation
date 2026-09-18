@@ -22,6 +22,5 @@ func ExponentialInterarrival(rate float64, rng *rand.Rand) (float64, error) {
 	}
 
 	u := rng.Float64() // U ~ Uniform(0, 1)
-	fmt.Println("what is U:", u)
 	return -math.Log(1-u) / rate, nil
 }
