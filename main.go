@@ -53,10 +53,6 @@ func main() {
 	var onProgress erlangb.ProgressFunc
 	if !*quiet {
 		onProgress = func(done, total int, run erlangb.SeedRun, sinceStart time.Duration) {
-			// "this run" and "since start" diverging (this run's own time
-			// roughly matching or exceeding total elapsed) is the visible
-			// evidence that seeds ran concurrently rather than one after
-			// another.
 			fmt.Printf("[%2d/%d] seed %3d done  blocking=%.7f  (%5.1fs this run, %6.1fs since start)\n",
 				done, total, run.Seed, run.Result.CallBlocking, run.Elapsed.Seconds(), sinceStart.Seconds())
 		}

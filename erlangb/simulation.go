@@ -96,8 +96,7 @@ loop:
 				// Service time reuses ExponentialInterarrival with
 				// serviceRate: it draws from the same exponential
 				// distribution, just interpreted as a duration rather
-				// than a gap between arrivals, exactly as the Python
-				// version reuses expo(service_rate) for departures.
+				// than a gap between arrivals
 				serviceTime, err := ExponentialInterarrival(serviceRate, rng)
 				if err != nil {
 					return RunResult{}, err

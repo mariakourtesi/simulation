@@ -44,10 +44,7 @@ type ReplicationResult struct {
 type ProgressFunc func(done, total int, run SeedRun, sinceStart time.Duration)
 
 // Replicate runs the simulation once per seed, concurrently across
-// goroutines, and aggregates the results the same way the Python version's
-// replicate() does across processes: mean q(j) per state, mean utilization,
-// and the mean/stdev of call blocking across seeds.
-//
+// goroutines, and aggregates the results
 // workers caps how many seeds run at once; 0 defaults to runtime.NumCPU(),
 // mirroring ProcessPoolExecutor's default. onProgress may be nil.
 func Replicate(seeds []int64, params SimulationParams, workers int, onProgress ProgressFunc) (ReplicationResult, error) {
